@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef4f2488-3530-4ea8-abe8-8210a56523e9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/PlanarMechSim.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MechSim.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InitGui.py" beforeDir="false" afterPath="$PROJECT_DIR$/InitGui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo00MechSimParts.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo01SimplePendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo02CompoundPendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo03DualPendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo04TriplePendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo05QuadPendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo06Rhombus.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo07StringBlocks.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo08StringSpinners.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo09TranslationJoint.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo10Rev-RevJoint.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo11PinInSlot.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo12RackAndPinionDevelopment.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Demo13GearsDevelopment.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B1X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B1Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B2X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B2Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B3X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B3Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B4X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-7x-B4Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B1X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B1Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B2X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B2Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B3X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B3Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B4X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-8x-B4Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B1X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B1Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B2X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B2Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B3X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B3Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B4X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x-B4Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Comparison-9x.ods" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/Lambda Body4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Experiment-QuadPendulum-IntegratorDivergence/QuadPendulum.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimBasic.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimBlock.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimBlockSeperate.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimCarDevelopment.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimSlide.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/MechSimTrolley.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Tutorial1-Assembly.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Tutorial1-ThreeBodies.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MechSim-Demo-Models/Tutorial1-TwoBodies.FCStd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimCommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimCommands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimFunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimFunction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimMakes.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimMakes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimTaskPanels.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimTaskPanels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimTools.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimTools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimViewProvider.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimViewProvider.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2xAvo3FsHeDF9MzTRVe4dhMW54P" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef4f2488-3530-4ea8-abe8-8210a56523e9" name="Changes" comment="" />
+      <created>1747393864997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747393864997</updated>
+    </task>
+    <servers />
+  </component>
+</project>
