@@ -67,6 +67,7 @@
 import FreeCAD as CAD
 
 from os import path
+from materialtools import cardutils
 from PySide import QtGui, QtCore
 import math
 import numpy as np
@@ -143,8 +144,36 @@ def getsimGlobalObject():
             return simGlobal
     return None
 #  -------------------------------------------------------------------------
-def loadDensityDict():
-    pass
+def loadDensityDictionary():
+    # Get the materials density data from the materials library
+    cardID2cardData, AnotherDummy, DummyDict = cardutils.import_materials()
+    DummyDict = {}
+    AnotherDummy = {}
+
+    # Set up a record for the default density value at the beginning of the density dictionary
+    # The density is in kg/m3
+    DensityDictionary = {'Default': 1000.0}
+
+    # Add all the cards to the densityDict
+    for card in cardID2cardData.values():
+        Name = ""
+        Density = ""
+        for key, value in card.items():
+            if key == "Name":
+                Name = value
+            if key == "Density":
+                Density = value
+            if Name != "" and Density != "":
+                space = Density.find(" ")
+                if space != -1:
+                    DensityDictionary[Name] = float(Density[:space]) * 1e9
+                Name = ""
+                Density = ""
+
+    # Last thing, add a custom density value at the end of the list
+    DensityDictionary['Custom'] = 1000.0
+
+    return DensityDictionary
 
 #  -------------------------------------------------------------------------
 def updateCoGMoI(bodyObj):

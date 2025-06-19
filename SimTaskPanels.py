@@ -69,7 +69,6 @@ import FreeCADGui as CADGui
 import SimTools as ST
 import SimMain
 
-from materialtools import cardutils
 from PySide import QtGui, QtCore
 import Part
 import math
@@ -403,35 +402,7 @@ class TaskPanelSimMaterialClass:
         self.materialTaskObject = materialTaskObject
         materialTaskObject.Proxy = self
 
-        if self.materialTaskObject.DensityDict == []:
-            ST.loadDensityDict(materialTaskObject)
-        # Get the materials density data from the materials library
-        cardID2cardData, AnotherDummy, DummyDict = cardutils.import_materials()
-        DummyDict = {}
-        AnotherDummy = {}
-
-        # Set up a record for the default density value at the beginning of the density dictionary
-        # The density is in kg/m3
-        self.densityDict = {'Default': 1000.0}
-
-        # Add all the cards to the densityDict
-        for card in cardID2cardData.values():
-            Name = ""
-            Density = ""
-            for key, value in card.items():
-                if key == "Name":
-                    Name = value
-                if key == "Density":
-                    Density = value
-                if Name != "" and Density != "":
-                    space = Density.find(" ")
-                    if space != -1:
-                        self.densityDict[Name] = float(Density[:space]) * 1e9
-                    Name = ""
-                    Density = ""
-
-        # Last thing, add a custom density value at the end of the list
-        self.densityDict['Custom'] = 1000.0
+        self.DensityDict = ST.loadDensityDictionary()
 
         # Get any previously defined sub-body/Material/Density
         self.solidsNameList = self.materialTaskObject.solidsNameList
@@ -458,11 +429,14 @@ class TaskPanelSimMaterialClass:
         self.form.tableWidget.horizontalHeader().setResizeMode(QtGui.QHeaderView.ResizeToContents)
 
         # Display a density table of all the solid parts in the dialog form
+        comboList = []
+        indexInCombo = []
         for tableIndex in range(len(self.solidsNames)):
             self.form.tableWidget.insertRow(tableIndex)
+
             # --------------------------------------
             # Column 0 -- Name of solid in the model
-            # Add the solid LABEL to the form, not the solid NAME
+            # Add the solid LABEL to the form, with solid NAME in [] if different
             if self.solidsLabels[tableIndex] != self.solidsNames[tableIndex]:
                 partName = QtGui.QTableWidgetItem(self.solidsLabels[tableIndex] + "[" + self.solidsNames[tableIndex] + "]")
             else:
@@ -473,43 +447,42 @@ class TaskPanelSimMaterialClass:
 
             # ----------------------------------
             # Column 1 - Material type selection
-            # Create a separate new combobox of all material types in column 1 of each solid Part
-            combo = QtGui.QComboBox()
+            # Create a separate new combobox of all material types in column 1 for each solid Part
+            comboList.append(QtGui.QComboBox())
             # If we don't find an entry, then the material will be "Default" (item 0 in list)
+            indexInCombo.append(0)
+
             dictIndex = 0
-            comboIndex = 0
-            for materName in self.densityDict:
-                combo.addItem(materName)
+            for materName in self.DensityDict:
+                comboList.append(materName)
                 # Now check if this one is the currently selected density
-                matIndex = -1
                 for material in self.solidsMaterials:
-                    matIndex += 1
                     if materName == material:
-                        comboIndex = dictIndex
+                        indexInCombo[tableIndex] = dictIndex
+                        break
                 dictIndex += 1
 
             # Save the combo in the table cell and set the current index
-            self.form.tableWidget.setCellWidget(tableIndex, 1, combo)
-            combo.setCurrentIndex(comboIndex)
+            self.form.tableWidget.setCellWidget(tableIndex, 1, comboList[tableIndex])
+            comboList[tableIndex].setCurrentIndex(indexInCombo[tableIndex])
 
             # Set the connect function for the density index changed
-            combo.currentIndexChanged.connect(self.MaterialComboChanged_Callback)
+            comboList[tableIndex].currentIndexChanged.connect(self.MaterialComboChanged_Callback)
 
             # -------------------------
             # Column 2 - Density values
             # Insert the appropriate density into column 2
             if self.materialTaskObject.kgm3ORgcm3 is True:
-                density = str(float(self.solidsDensities[tableIndex]))
+                density = str(ST.Round(float(self.solidsDensities[tableIndex])))
             else:
-                density = str(float(self.solidsDensities[tableIndex]) * 1.0e6)
+                density = str(ST.Round(float(self.solidsDensities[tableIndex]) * 1.0e6))
 
-            self.form.tableWidget.setItem(
-                tableIndex,
-                2,
-                QtGui.QTableWidgetItem(density))
+            self.form.tableWidget.setItem(tableIndex, 2, QTableWidgetItem(density))
+            # -------------------------
 
-            self.form.tableWidget.resizeColumnsToContents()
-        # End of populating the table in the task dialog
+        # Next tableIndex - End of populating the table in the task dialog
+
+        self.form.tableWidget.resizeColumnsToContents()
 
         # Connect up changes in the form to the appropriate handler
         self.form.tableWidget.cellClicked.connect(self.showSelectionInGui_Callback)
@@ -545,13 +518,10 @@ class TaskPanelSimMaterialClass:
 
         for tableIndex in range(len(self.solidsDensities)):
             if self.materialTaskObject.kgm3ORgcm3 is True:
-                density = str(float(self.solidsDensities[tableIndex]))
+                density = str(ST.Round(float(self.solidsDensities[tableIndex])))
             else:
-                density = str(float(self.solidsDensities[tableIndex]) / 1000.0)
-            self.form.tableWidget.setItem(
-                tableIndex,
-                2,
-                QtGui.QTableWidgetItem(density))
+                density = str(ST.Round(float(self.solidsDensities[tableIndex]) / 1000.0))
+            self.form.tableWidget.setItem(tableIndex, 2, QtGui.QTableWidgetItem(density))
     #  -------------------------------------------------------------------------
     def manualDensityEntered_Callback(self):
         """We have entered a density value manually"""
@@ -586,7 +556,7 @@ class TaskPanelSimMaterialClass:
             # Update the density to being a Custom one in the table
             # (the last density option in the list)
             combo = self.form.tableWidget.cellWidget(currentRow, 1)
-            combo.setCurrentIndex(len(self.densityDict) - 1)
+            combo.setCurrentIndex(len(self.DensityDict) - 1)
             self.form.tableWidget.setCellWidget(currentRow, 1, combo)
             # Write the new density value which was entered, back into column 2 of current Row
             # It was entered with the current units, so it should stay the same size as was entered
@@ -612,16 +582,16 @@ class TaskPanelSimMaterialClass:
 
         # Update the entry with new material and density
         self.solidsNames[currentRow] = materialName
-        self.solidsDensities[currentRow] = float(self.densityDict[materialName])
+        self.solidsDensities[currentRow] = self.DensityDict[materialName]
         ST.addObjectProperty(selectionObject, "Material", materialName, "App::PropertyString", "", "Composition of the sub-body")
-        ST.addObjectProperty(selectionObject, "Density", self.densityDict[materialName], "App::PropertyFloat", "", "Density of the sub-body")
+        ST.addObjectProperty(selectionObject, "Density", self.DensityDict[materialName], "App::PropertyFloat", "", "Density of the sub-body")
 
         # Display the newly selected density in the table
         # NOTE: Density is stored internally as kg / m^3
         if self.materialTaskObject.kgm3ORgcm3 is True:
-            self.form.tableWidget.setItem(currentRow, 2, QtGui.QTableWidgetItem(str(ST.Round(self.densityDict[materialName]))))
+            self.form.tableWidget.setItem(currentRow, 2, QtGui.QTableWidgetItem(str(ST.Round(self.DensityDict[materialName]))))
         else:
-            self.form.tableWidget.setItem(currentRow, 2, QtGui.QTableWidgetItem(str(ST.Round(self.densityDict[materialName] / 1000.0))))
+            self.form.tableWidget.setItem(currentRow, 2, QtGui.QTableWidgetItem(str(ST.Round(self.DensityDict[materialName] / 1000.0))))
 
         self.form.tableWidget.resizeColumnsToContents()
     #  -------------------------------------------------------------------------
